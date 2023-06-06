@@ -1,0 +1,183 @@
+:root {
+  --yellow: #ffa201;
+  --black: #000000;
+  --white: #ffffff;
+  --dark-blue: #192d61;
+}
+
+@font-face {
+  font-family: "Poppins-semibold";
+  src: url("../fonts/Poppins-SemiBold.ttf");
+}
+
+.box-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: black;
+}
+
+.box-container .sidebar {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--yellow);
+  width: 400px;
+  min-width: 300px;
+  overflow: hidden;
+  transition: all 350ms ease-in-out;
+  min-height: 500px;
+  overflow: auto;
+  height: auto;
+}
+
+.box-container .sidebar * {
+  color: white;
+  font-size: 1.5em;
+  font-family: "Poppins-semibold", Arial;
+  transition: all 350ms ease-in-out;
+}
+
+.box-container .sidebar span.line {
+  width: 100%;
+  height: 1px;
+}
+
+.box-container .sidebar span.line.white {
+  background-color: white;
+}
+
+.box-container .sidebar span.line.black {
+  background-color: black;
+}
+
+.box-container .sidebar .logo {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.box-container .sidebar .logo * {
+  transition: 350ms all ease-in-out;
+}
+
+.box-container .sidebar .logo .sidebar-responsive-toggler {
+  transition: 350ms ease-in-out;
+  font-size: 1.8em;
+  transform: translateX(-200%) rotateZ(180deg);
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.box-container .sidebar .buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.box-container .sidebar .buttons a {
+  text-decoration: none;
+  font-size: 1.4em;
+  margin-block: 0.3em;
+  position: relative;
+  display: flex;
+}
+
+.box-container .sidebar .logo p:last-child {
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+.box-container .sidebar .buttons a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1%;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  transition: 750ms ease-in-out;
+}
+
+.box-container .sidebar .buttons a:focus {
+  outline: 0;
+  border: none;
+}
+
+.box-container .sidebar .buttons a:hover,
+.box-container .sidebar .buttons a:focus {
+  outline: 0;
+  border: none;
+}
+
+.box-container .sidebar .buttons a:hover::after,
+.box-container .sidebar .buttons a:focus::after {
+  width: 100%;
+}
+
+.box-container .sidebar .buttons a img {
+  position: absolute;
+  transform: translateX(-200%);
+
+  width: 45px;
+  height: 45px;
+  fill: white;
+  fill-rule: evenodd;
+}
+
+.box-container .sidebar.active .buttons img {
+  animation: reveal-buttons 500ms 400ms forwards ease-in-out;
+}
+
+@keyframes reveal-buttons {
+  to {
+    position: unset;
+  }
+}
+
+.box-container .sidebar.active {
+  min-width: 85px;
+  width: 85px;
+
+  overflow-x: hidden;
+}
+
+.box-container .sidebar.active .buttons a {
+  animation: delay-position-absolute 100ms 500ms forwards;
+}
+
+.box-container .sidebar.active .logo *:not(.sidebar-responsive-toggler) {
+  animation-delay: 500ms;
+  display: none;
+}
+
+.box-container .sidebar.active .logo .sidebar-responsive-toggler {
+  transform: rotateZ(0) translateX(50%);
+  position: unset;
+}
+
+.box-container .sidebar.active a {
+  transform: translateX(200%);
+}
+
+.box-container .sidebar .buttons a img {
+  position: absolute !important;
+  left: -1%;
+  align-self: center;
+  fill: white;
+}
+
+.box-container .main {
+  width: 100%;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.m-t-auto {
+  margin-top: auto;
+}

@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# RewriteRule ^(index.php)$ home [L]
+
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule (.*) /home [R=301,L]
+RewriteRule ^home$ index.php [L]

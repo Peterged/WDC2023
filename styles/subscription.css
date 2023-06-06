@@ -1,0 +1,43 @@
+:root {
+  --yellow: #ffa201;
+  --black: #000000;
+  --white: #ffffff;
+  --dark-blue: #192d61;
+}
+
+@font-face {
+    font-family: "Poppins-semibold";
+    src: url("../fonts/Poppins-SemiBold.ttf");
+  }
+
+
+
+.add-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-data-button {
+    font-family: 'Poppins-semibold';
+    text-align: center;
+  padding: 0.5em 1em;
+  background: var(--yellow);
+  color: #000000;
+  font-size: 1.7em;
+  transition: all 350ms ease-in-out;
+  border: 3px solid transparent;
+  width: 100%;
+  margin-bottom: 0.4em;
+  text-decoration: none;
+}
+
+.add-data-button:hover,
+.add-data-button:focus,
+.add-data-button:active {
+    background-color: transparent;
+    border: 3px solid var(--yellow);
+    color: var(--yellow);
+}
+

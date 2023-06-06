@@ -1,0 +1,235 @@
+:root {
+  --yellow: #ffa201;
+  --black: #000000;
+  --white: #ffffff;
+  --dark-blue: #192d61;
+}
+
+@font-face {
+  font-family: "Poppins-semibold";
+  src: url("../fonts/Poppins-SemiBold.ttf");
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+
+  background-color: var(--dark-blue);
+
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  height: 600px;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  transition: all 500ms ease-in-out;
+}
+
+.container .content-bottom {
+  height: auto;
+  padding: 25px;
+
+  background-color: var(--yellow);
+  color: black;
+
+  box-shadow: -15px 15px 0 var(--black);
+}
+
+.container .content-bottom input.input-text {
+  padding: 20px 30px;
+  background: transparent;
+  color: black;
+  outline: none;
+  border: 2px solid var(--black);
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.container .content-bottom input.input-text::placeholder {
+  color: black;
+}
+
+.container .content-top {
+  height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--yellow);
+  color: black;
+  box-shadow: -15px 15px 0 var(--black);
+}
+
+.container .content-top p {
+  font-size: 5em;
+}
+
+.container .content-top p,
+.container .content-bottom form .submit-button * {
+  font-family: "Poppins-semibold" !important;
+}
+
+.container .content-bottom form .submit-button {
+  display: flex;
+  cursor: pointer;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  align-items: flex-end;
+}
+
+.container .content-bottom form .submit-button * {
+  font-size: 2.3em;
+  transition: all 350ms ease-in-out;
+  margin-bottom: -10px;
+}
+
+.container .content-bottom form .submit-button div {
+  display: flex;
+  width: max-content;
+  height: 100%;
+}
+
+.container .content-bottom form .submit-button:hover div p,
+.container .content-buttom form .submit-button div:hover p {
+  transform: translateX(10px);
+}
+
+.container .content-bottom form .submit-button input {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media only screen and (orientation: landscape) and (max-width: 550px) {
+  body {
+    padding: 1em;
+  }
+
+  .container {
+    margin-bottom: 3.8em;
+  }
+}
+
+@media all and (orientation: landscape) and (max-height: 550px) {
+  .container {
+    margin-bottom: 4em;
+    margin-top: 1em;
+  }
+  body {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  body {
+    padding: 1em;
+  }
+  .container {
+    width: 90%;
+    height: auto;
+  }
+
+  .container .content-bottom {
+    padding: 1.4em;
+  }
+
+  .container .content-bottom form .submit-button {
+    padding: 0.5em;
+    margin-bottom: 1.2em;
+  }
+
+  .container .content-bottom form input.input-text {
+    padding: 1em;
+  }
+
+  .container .content-top {
+    height: 15vh;
+  }
+
+  .container * {
+    font-size: 3vw;
+  }
+}
+
+.other-button {
+  position: fixed;
+  bottom: 1%;
+  width: 100%;
+  padding: 5px;
+
+  display: grid;
+  place-items: center;
+  z-index: 5000;
+}
+
+.other-button a {
+  cursor: pointer;
+  color: var(--yellow);
+  font-size: 1.5em;
+  padding: 5px 25px;
+  border-radius: 7px;
+  background-color: black;
+  width: max-content;
+  text-align: center;
+  transition: 400ms;
+
+  text-decoration: none;
+}
+
+.other-button a:hover,
+.other-button a:focus,
+.other-button a:active {
+  cursor: pointer;
+  background: var(--yellow);
+  color: black;
+  transform: translateY(-10%);
+}
+
+.other-button a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transform-origin: center;
+  transition: all 500ms ease-in-out;
+}
+
+.other-button a:hover::after,
+.other-button a:focus::after,
+.other-button a:active::after {
+  width: 100%;
+}
+
+.message {
+  position: fixed;
+  top: 1%;
+  right: 1%;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.message:has(p) {
+  background: black;
+  color: white;
+}
+
+.message:has(p[green]) {
+  background: black;
+  color: var(--yellow);
+}
+
+.message:not(:has(p)) {
+  padding: 0;
+}
